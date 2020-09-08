@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import config from './config';
 import Login from './Login/Login'
 import LandingPage from './LandingPage/LandingPage'
+import Profile from './Profile/Profile'
+import env from './config';
 import {
   Switch,
   Route,
-  // Link,
+  Link,
   // useRouteMatch,
   // useParams
 } from "react-router-dom";
+import PrivateRoute from './PrivateRoute';
 
 
 class App extends Component {
@@ -19,9 +21,26 @@ class App extends Component {
       user_name: '',
       password: '',
       error: '',
-      authMessage: ''
+      authMessage: '',
+      isAuthenticated: false
     };
 
+  }
+
+  getProfile = ()=>{
+    fetch(`${env.API_ENDPOINT}/user/profile`,
+    {
+      headers: {Authorization: 'Bearer '+ localStorage.getItem(env.TOKEN_KEY)},
+      method: "POST",
+
+    }
+    )
+      .then(response => response.json())
+      .then(data =>{ 
+        console.log(localStorage.getItem(env.TOKEN_KEY))
+        this.setState({ isAuthenticated: true, profile: data })
+      }
+      ).catch(err=>console.log(err))
   }
 
   dismissError = () => {
@@ -39,7 +58,7 @@ class App extends Component {
     if (!password) {
       return this.setState({ error: 'Password is required' });
     }
-    fetch(`${config.API_ENDPOINT}/auth/login`, {
+    fetch(`${env.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -52,13 +71,19 @@ class App extends Component {
           this.setState({authMessage: "failed"})
         }
         else {
-          res.json()
           this.setState({authMessage: "success"})
+          return res.json();          
         }
       }
 
       )
-      return this.setState({ error: '' });
+      .then(data => {
+          localStorage.setItem(env.TOKEN_KEY, data.authToken)
+          
+      })
+      .catch(res => {
+        this.setState({ error: '' });
+      })
   }
 
 
@@ -73,6 +98,11 @@ class App extends Component {
       password: evt.target.value,
     });
   }
+  logout = () => {
+    console.log('here we go')
+    localStorage.removeItem(env.TOKEN_KEY)
+    this.setState({authMessage: '', isAuthenticated: false})
+  }
 
   render() {
     
@@ -84,20 +114,43 @@ class App extends Component {
       user_name: this.state.user_name,
       password: this.state.password,
       error: this.state.error,
-      authMessage: this.state.authMessage
+      authMessage: this.state.authMessage,
+      logout: this.logout
     }
     
 
     return (
       
         <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/videos">Video Classes</Link>
+              </li>
+              <li>
+                <Link to="/profile" onClick={this.getProfile}>Profile</Link>
+              </li>
+              
+              
+            </ul>
+          </nav>
+
           <Switch>
             <Route path="/login">
               <Login {...loginProps}/>
             </Route>
+            <PrivateRoute path="/profile" isAuthenticated = {this.state.isAuthenticated}>
+                <Profile />
+            </PrivateRoute>
             <Route path="/">
               <LandingPage />
-            </Route>
+            </Route>           
           </Switch>
         </div>
       

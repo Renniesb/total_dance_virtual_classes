@@ -10,7 +10,8 @@ const Login = ({
     user_name,
     password,
     error,    
-    authMessage
+    authMessage,
+    logout
 }) => {
     return (
         <div className="Login">
@@ -30,7 +31,7 @@ const Login = ({
 
             <p>{authMessage}</p>
 
-            <input type="submit" value="Log In" data-test="submit" />
+            {authMessage != "success" ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={logout}  data-test="submit">Log Out</button>   } 
             </form>
         </div>
     )
