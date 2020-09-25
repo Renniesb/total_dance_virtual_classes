@@ -13,6 +13,7 @@ function Nav({getProfile,page,authMessage}) {
                 <Link to="/login">Login</Link>
 
                 {
+                  //show the Videos menu and the profile menu tabs if the login is a success
                   authMessage === "success" ? (
                     <>
                       <Link to="/videos">Video Classes</Link>
@@ -48,6 +49,7 @@ function Nav({getProfile,page,authMessage}) {
                 <Link to="/login">Login</Link>
 
                 {
+                  //show the Videos menu and the profile menu tabs if the login is a success
                   authMessage === "success" ? (
                     <>
                       <Link className="active" to="/videos">Video Classes</Link>
