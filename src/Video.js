@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Nav from './Nav/Nav';
-function Video({getProfile}) {
+function Video({getProfile,authMessage}) {
     const [danceSelected, setDanceBoolean] = useState(false);
     const renderSelectDance = () => {
         return (
@@ -33,7 +33,7 @@ function Video({getProfile}) {
 
     return (
         <>
-            <Nav getProfile={getProfile} page="login"/>
+            <Nav authMessage={authMessage} getProfile={getProfile} page="videos"/>
            {
                !danceSelected ? renderSelectDance() : renderSelectLevel()
            } 

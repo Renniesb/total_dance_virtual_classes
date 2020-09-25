@@ -19,7 +19,7 @@ const Login = ({
 }) => {
     return (
         <div>
-            <Nav getProfile={getProfile} page="login"/>
+            <Nav authMessage={authMessage} getProfile={getProfile} page="login"/>
             <div className="Login">
                 <form onSubmit={handleSubmit}>
                 {

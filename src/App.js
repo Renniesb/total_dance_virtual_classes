@@ -119,7 +119,7 @@ class App extends Component {
       error: this.state.error,
       authMessage: this.state.authMessage,
       logout: this.logout,
-      getProfile: this.getProfile()
+      getProfile: this.getProfile
     }
     
 
@@ -131,16 +131,13 @@ class App extends Component {
               <Login {...loginProps}/>
             </Route>
             <Route path="/videos">
-              <Video getProfile={this.getProfile} />
+              <Video authMessage={this.state.authMessage} getProfile={this.getProfile} />
             </Route>       
-            <Route path="/profile">
-              <Profile />
-            </Route>
             <PrivateRoute path="/profile" isAuthenticated = {this.state.isAuthenticated}>
-                <Profile />
+                <Profile authMessage={this.state.authMessage} />
             </PrivateRoute>
             <Route path="/">
-              <LandingPage getProfile={this.getProfile}/>
+              <LandingPage authMessage={this.state.authMessage} getProfile={this.getProfile}/>
             </Route>           
           </Switch>
       </div>
