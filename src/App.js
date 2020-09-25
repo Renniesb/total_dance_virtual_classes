@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import Video from './Video'
 import Login from './Login/Login'
 import LandingPage from './LandingPage/LandingPage'
 import Profile from './Profile/Profile'
 import env from './config';
+
+
 import {
   Switch,
   Route,
-  Link,
-  // useRouteMatch,
-  // useParams
 } from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
-
 
 class App extends Component {
   constructor() {
@@ -27,7 +26,7 @@ class App extends Component {
 
   }
 
-  getProfile = ()=>{
+  getProfile = (history)=>{
     fetch(`${env.API_ENDPOINT}/user/profile`,
     {
       headers: {Authorization: 'Bearer '+ localStorage.getItem(env.TOKEN_KEY)},
@@ -38,7 +37,10 @@ class App extends Component {
       .then(response => response.json())
       .then(data =>{ 
         console.log(localStorage.getItem(env.TOKEN_KEY))
-        this.setState({ isAuthenticated: true, profile: data })
+        this.setState({ isAuthenticated: true, profile: data },()=>{
+          history.push('./profile')
+        })
+        
       }
       ).catch(err=>console.log(err))
   }
@@ -106,6 +108,7 @@ class App extends Component {
 
   render() {
     
+    
     const loginProps = {
       handlePassChange : this.handlePassChange,
       handleUserChange: this.handleUserChange,
@@ -115,44 +118,32 @@ class App extends Component {
       password: this.state.password,
       error: this.state.error,
       authMessage: this.state.authMessage,
-      logout: this.logout
+      logout: this.logout,
+      getProfile: this.getProfile()
     }
     
 
     return (
       
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/videos">Video Classes</Link>
-              </li>
-              <li>
-                <Link to="/profile" onClick={this.getProfile}>Profile</Link>
-              </li>
-              
-              
-            </ul>
-          </nav>
-
+      <div>     
           <Switch>
             <Route path="/login">
               <Login {...loginProps}/>
+            </Route>
+            <Route path="/videos">
+              <Video getProfile={this.getProfile} />
+            </Route>       
+            <Route path="/profile">
+              <Profile />
             </Route>
             <PrivateRoute path="/profile" isAuthenticated = {this.state.isAuthenticated}>
                 <Profile />
             </PrivateRoute>
             <Route path="/">
-              <LandingPage />
+              <LandingPage getProfile={this.getProfile}/>
             </Route>           
           </Switch>
-        </div>
+      </div>
       
       
     );

@@ -1,5 +1,8 @@
 import React from 'react';
 import './Login.css';
+import env from '../config';
+import Nav from '../Nav/Nav'
+
 // import config from '../config'
 
 const Login = ({
@@ -11,29 +14,34 @@ const Login = ({
     password,
     error,    
     authMessage,
-    logout
+    logout,
+    getProfile
 }) => {
     return (
-        <div className="Login">
-            <form onSubmit={handleSubmit}>
-            {
-                error &&
-                <h3 data-test="error" onClick={dismissError}>
-                <button onClick={dismissError}>✖</button>
-                {error}
-                </h3>
-            }
-            <label>User Name</label>
-            <input type="text" data-test="username" value={user_name} onChange={handleUserChange} />
+        <div>
+            <Nav getProfile={getProfile} page="login"/>
+            <div className="Login">
+                <form onSubmit={handleSubmit}>
+                {
+                    error &&
+                    <h3 data-test="error" onClick={dismissError}>
+                    <button onClick={dismissError}>✖</button>
+                    {error}
+                    </h3>
+                }
+                <label>User Name</label>
+                <input type="text" data-test="username" value={user_name} onChange={handleUserChange} />
 
-            <label>Password</label>
-            <input type="password" data-test="password" value={password} onChange={handlePassChange} />
+                <label>Password</label>
+                <input type="password" data-test="password" value={password} onChange={handlePassChange} />
 
-            <p>{authMessage}</p>
+                <p>{authMessage}</p>
 
-            {authMessage != "success" ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={logout}  data-test="submit">Log Out</button>   } 
-            </form>
+                {authMessage !== "success" && localStorage.getItem(env.TOKEN_KEY) === null ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={logout}  data-test="submit">Log Out</button>   } 
+                </form>
+            </div>
         </div>
+        
     )
 }
 
