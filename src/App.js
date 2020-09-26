@@ -107,8 +107,6 @@ class App extends Component {
   }
 
   render() {
-    
-    
     const loginProps = {
       handlePassChange : this.handlePassChange,
       handleUserChange: this.handleUserChange,
@@ -124,7 +122,6 @@ class App extends Component {
     
 
     return (
-      
       <div>     
           <Switch>
             <Route path="/login">
@@ -140,9 +137,7 @@ class App extends Component {
               <LandingPage authMessage={this.state.authMessage} getProfile={this.getProfile}/>
             </Route>           
           </Switch>
-      </div>
-      
-      
+      </div>  
     );
   }
 }
