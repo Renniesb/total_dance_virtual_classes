@@ -7,32 +7,47 @@ function Video({getProfile,authMessage}) {
     const dances = ['Salsa','Bachata','Merengue'];
     const [danceStep, setDanceStep] = useState('chooseDance');
     const [danceLevel, setDanceLevel] = useState('all');
-
+    const resetValues = () => {
+        setDanceStep('chooseDance')
+        setDanceLevel('all')
+    }
     const getHero = () => {
         if(danceStep === "Salsa" && danceLevel !== 'all' ){
             return (
+                <>
                 <header className="salsa-hero">
                      <div className="container">
                          <h1 className="main-text">{danceLevel} Salsa Dance Lessons</h1>
                      </div>
-                 </header>  )
+                 </header>
+                 <button className="big-button" onClick={() => resetValues()}>Select A different dance</button>
+                </>
+                 )
 
         }
         else if (danceStep === "Bachata" && danceLevel !== 'all'){
             return (
+                <>
                 <header className="bachata-hero">
                      <div className="container">
                          <h1 className="main-text">{danceLevel} Bachata Dance Lessons</h1>
                      </div>
-                 </header>  )
+                 </header>
+                 <button className="big-button" onClick={() => resetValues()}>Select A different dance</button>
+                </>
+                   )
         }
         else if (danceStep === "Merengue" && danceLevel !== 'all'){
             return (
+                <>
                 <header className="merengue-hero">
                      <div className="container">
             <h1 className="main-text">{danceLevel} Merengue Dance Lessons</h1>
                      </div>
-                 </header>  )
+                 </header>
+                 <button className="big-button" onClick={() => resetValues()}>Select A different dance</button>
+                </>
+                   )
         }
         else {
             return (
