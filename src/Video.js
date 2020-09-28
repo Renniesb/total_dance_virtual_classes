@@ -97,7 +97,7 @@ function Video({getProfile,authMessage}) {
     
                             <h3 style={{marginTop: "50px", marginBottom: "15px"}}>{move.name}</h3>
                             <div className="img-container">
-                                <iframe style={{height: "315px", width: "100%"}}src={`http://www.youtube.com/embed/${move.link}`}
+                                <iframe style={{height: "315px", width: "100%"}}src={`https://www.youtube.com/embed/${move.link}`}
                                  frameBorder="0" allowFullScreen title={move.name}>
                                 </iframe>
                             </div>
