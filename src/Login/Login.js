@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import env from '../config';
+// import env from '../config';
 import Nav from '../Nav/Nav'
 
 // import config from '../config'
@@ -37,7 +37,7 @@ const Login = ({
 
                 <p>{authMessage}</p>
 
-                {authMessage !== "success" && localStorage.getItem(env.TOKEN_KEY) === null ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={logout}  data-test="submit">Log Out</button>   } 
+                {authMessage !== "success" ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={logout}  data-test="submit">Log Out</button>   } 
                 </form>
             </div>
         </div>

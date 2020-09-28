@@ -4,7 +4,7 @@ import Video from './Video'
 import Login from './Login/Login'
 import LandingPage from './LandingPage/LandingPage'
 import Profile from './Profile/Profile'
-import env from './config';
+// import env from './config';
 
 
 import {
@@ -27,22 +27,28 @@ class App extends Component {
   }
 
   getProfile = (history)=>{
-    fetch(`${env.API_ENDPOINT}/user/profile`,
-    {
-      headers: {Authorization: 'Bearer '+ localStorage.getItem(env.TOKEN_KEY)},
-      method: "POST",
 
-    }
-    )
-      .then(response => response.json())
-      .then(data =>{ 
-        console.log(localStorage.getItem(env.TOKEN_KEY))
-        this.setState({ isAuthenticated: true, profile: data },()=>{
+        this.setState({ isAuthenticated: true },()=>{
           history.push('./profile')
         })
+
+
+    // fetch(`${env.API_ENDPOINT}/user/profile`,
+    // {
+    //   headers: {Authorization: 'Bearer '+ localStorage.getItem(env.TOKEN_KEY)},
+    //   method: "POST",
+
+    // }
+    // )
+    //   .then(response => response.json())
+    //   .then(data =>{ 
+    //     console.log(localStorage.getItem(env.TOKEN_KEY))
+    //     this.setState({ isAuthenticated: true, profile: data },()=>{
+    //       history.push('./profile')
+    //     })
         
-      }
-      ).catch(err=>console.log(err))
+    //   }
+    //   ).catch(err=>console.log(err))
   }
 
   dismissError = () => {
@@ -60,32 +66,39 @@ class App extends Component {
     if (!password) {
       return this.setState({ error: 'Password is required' });
     }
-    fetch(`${env.API_ENDPOINT}/auth/login`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ user_name, password }),
-    })
-      .then(res =>{
-        if(!res.ok){
-          res.json().then(e => Promise.reject(e))
-          this.setState({authMessage: "failed"})
-        }
-        else {
-          this.setState({authMessage: "success"})
-          return res.json();          
-        }
-      }
 
-      )
-      .then(data => {
-          localStorage.setItem(env.TOKEN_KEY, data.authToken)
+    if(user_name === 'dunder' && password === 'password'){
+      this.setState({authMessage: "success"})
+    }
+    else {
+      this.setState({authMessage: "failed"})
+    }
+    // fetch(`${env.API_ENDPOINT}/auth/login`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ user_name, password }),
+    // })
+    //   .then(res =>{
+    //     if(!res.ok){
+    //       res.json().then(e => Promise.reject(e))
+    //       this.setState({authMessage: "failed"})
+    //     }
+    //     else {
+    //       this.setState({authMessage: "success"})
+    //       return res.json();          
+    //     }
+    //   }
+
+    //   )
+    //   .then(data => {
+    //       localStorage.setItem(env.TOKEN_KEY, data.authToken)
           
-      })
-      .catch(res => {
-        this.setState({ error: '' });
-      })
+    //   })
+    //   .catch(res => {
+    //     this.setState({ error: '' });
+    //   })
   }
 
 
@@ -101,8 +114,8 @@ class App extends Component {
     });
   }
   logout = () => {
-    console.log('here we go')
-    localStorage.removeItem(env.TOKEN_KEY)
+    // console.log('here we go')
+    // localStorage.removeItem(env.TOKEN_KEY)
     this.setState({authMessage: '', isAuthenticated: false})
   }
 
@@ -131,7 +144,7 @@ class App extends Component {
               <Video authMessage={this.state.authMessage} getProfile={this.getProfile} />
             </Route>       
             <PrivateRoute path="/profile" isAuthenticated = {this.state.isAuthenticated}>
-                <Profile authMessage={this.state.authMessage} />
+                <Profile authMessage={this.state.authMessage} getProfile={this.getProfile} />
             </PrivateRoute>
             <Route path="/">
               <LandingPage authMessage={this.state.authMessage} getProfile={this.getProfile}/>
