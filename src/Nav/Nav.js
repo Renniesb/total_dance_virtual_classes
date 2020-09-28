@@ -59,6 +59,24 @@ function Nav({getProfile,page,authMessage}) {
                 }
               
               </nav>)
+    }else{
+      return(<nav className="topnav">
+              
+                <Link to="/">Home</Link>
+
+                <Link to="/login">Login</Link>
+
+                {
+                  //show the Videos menu and the profile menu tabs if the login is a success
+                  authMessage === "success" ? (
+                    <>
+                      <Link to="/videos">Video Classes</Link>
+                      <button className="active makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
+                    </> 
+                  ): <></>
+                }
+              
+              </nav>)
     }
     
 }

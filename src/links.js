@@ -2,12 +2,12 @@ let Salsa = {
     beginner: [
         
             {
-                name: "Holding and maintaining your frame",
-                link: "MyFAjSe3t5Q"
+                name: "How To Spin Your Partner",
+                link: "46dybRGrCsc"
             },
             {
-                name: "Salsa hand grip, arm tension, etc.",
-                link:  "Gg3A7jsrQyM"
+                name: "Make your basic step look more natural",
+                link:  "9CzGaubcqQg"
             },
             {
                 name: "Closed position lead setup",
@@ -18,8 +18,8 @@ let Salsa = {
     ],
     intermediate: [
         {
-            name: "Basic turns",
-            link: "VQ_J6sbqYPo"
+            name: "Pencil turns",
+            link: "ADysVrHMp3g"
 
         },
         {
@@ -53,18 +53,18 @@ let Bachata = {
         link: "tgRMUVD1FeM"
     },
     {
-        name: "Introductory lessons for bachata",
-        link: "vDEfXZbgyQw"
+        name: "Beginning Bachata footwork",
+        link: "yz8JhAA_foE"
     },
     {
-        name: "Reverse basic steps", 
-        link: "AGMT0OPmf0U"
+        name: "6 Bachata Basic Steps", 
+        link: "TJGfUGUoZe0"
     }
     ],
     intermediate: [
         {
-            name: "Bachata half pivots, inside and outside spins, alternating turns, free spins", 
-            link: "WBCq0cSxvE"
+            name: "Alternating turns into slide", 
+            link: "j3Fshk1NWyA"
         },
 
         {
