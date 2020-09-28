@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/total_dance_virtual_classes/static/css/main.76ba0926.chunk.css",
-    "main.js": "/total_dance_virtual_classes/static/js/main.73a42b80.chunk.js",
-    "main.js.map": "/total_dance_virtual_classes/static/js/main.73a42b80.chunk.js.map",
+    "main.js": "/total_dance_virtual_classes/static/js/main.997683d2.chunk.js",
+    "main.js.map": "/total_dance_virtual_classes/static/js/main.997683d2.chunk.js.map",
     "runtime-main.js": "/total_dance_virtual_classes/static/js/runtime-main.9c9a9861.js",
     "runtime-main.js.map": "/total_dance_virtual_classes/static/js/runtime-main.9c9a9861.js.map",
     "static/js/2.54a313db.chunk.js": "/total_dance_virtual_classes/static/js/2.54a313db.chunk.js",
     "static/js/2.54a313db.chunk.js.map": "/total_dance_virtual_classes/static/js/2.54a313db.chunk.js.map",
     "index.html": "/total_dance_virtual_classes/index.html",
-    "precache-manifest.3854356dc5148e7618a6de883204dd9b.js": "/total_dance_virtual_classes/precache-manifest.3854356dc5148e7618a6de883204dd9b.js",
+    "precache-manifest.78ba537ef4f39a571ae006af20e0c70e.js": "/total_dance_virtual_classes/precache-manifest.78ba537ef4f39a571ae006af20e0c70e.js",
     "service-worker.js": "/total_dance_virtual_classes/service-worker.js",
     "static/css/main.76ba0926.chunk.css.map": "/total_dance_virtual_classes/static/css/main.76ba0926.chunk.css.map",
     "static/js/2.54a313db.chunk.js.LICENSE.txt": "/total_dance_virtual_classes/static/js/2.54a313db.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.9c9a9861.js",
     "static/js/2.54a313db.chunk.js",
     "static/css/main.76ba0926.chunk.css",
-    "static/js/main.73a42b80.chunk.js"
+    "static/js/main.997683d2.chunk.js"
   ]
 }
