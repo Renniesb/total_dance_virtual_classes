@@ -71,9 +71,11 @@ class App extends Component {
         if(!res.ok){
           res.json().then(e => Promise.reject(e))
           this.setState({authMessage: "failed"})
+          this.setState({user_name: "", password: ""})
         }
         else {
           this.setState({authMessage: "success"})
+          this.setState({user_name: "", password: ""})
           return res.json();          
         }
       }
