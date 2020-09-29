@@ -12,6 +12,16 @@
   text-transform: uppercase;
 }
 
+.big-button {
+  cursor: pointer;
+  font-size: 13px;
+  margin: 15px 0 0 10px;
+  padding: 10px;
+  color: white;
+  background-color: #483f3f;
+  border-radius: 10%;
+}
+
 .description{
 font-size: 1.5rem;
 }
