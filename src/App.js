@@ -69,11 +69,14 @@ class App extends Component {
 
     if(user_name === 'dunder' && password === 'password'){
       this.setState({authMessage: "success"})
+      this.setState({user_name: "", password: ""})
+      history.push('./videos')
     }
     else {
       this.setState({authMessage: "failed"})
+      this.setState({user_name: "", password: ""})
     }
-    history.push('./videos')
+    
   }
 
 
