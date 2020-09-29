@@ -31,24 +31,6 @@ class App extends Component {
         this.setState({ isAuthenticated: true },()=>{
           history.push('./profile')
         })
-
-
-    // fetch(`${env.API_ENDPOINT}/user/profile`,
-    // {
-    //   headers: {Authorization: 'Bearer '+ localStorage.getItem(env.TOKEN_KEY)},
-    //   method: "POST",
-
-    // }
-    // )
-    //   .then(response => response.json())
-    //   .then(data =>{ 
-    //     console.log(localStorage.getItem(env.TOKEN_KEY))
-    //     this.setState({ isAuthenticated: true, profile: data },()=>{
-    //       history.push('./profile')
-    //     })
-        
-    //   }
-    //   ).catch(err=>console.log(err))
   }
 
   dismissError = () => {
