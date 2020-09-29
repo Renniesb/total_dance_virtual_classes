@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/total_dance_virtual_classes/precache-manifest.78ba537ef4f39a571ae006af20e0c70e.js"
+  "/total_dance_virtual_classes/precache-manifest.3f2e76eae53e26168bf28b35f3dc4dfc.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a2dc5fcea4855f4d93929124daf2e20b",
+    "revision": "aeded1565b28043b10bfc4069f011803",
     "url": "/total_dance_virtual_classes/index.html"
   },
   {
-    "revision": "44025914b250ad51edb8",
-    "url": "/total_dance_virtual_classes/static/css/main.76ba0926.chunk.css"
+    "revision": "93a978fb970bbb47a0c1",
+    "url": "/total_dance_virtual_classes/static/css/main.791fce99.chunk.css"
   },
   {
     "revision": "cac90d225c96079d4465",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/total_dance_virtual_classes/static/js/2.54a313db.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "44025914b250ad51edb8",
-    "url": "/total_dance_virtual_classes/static/js/main.997683d2.chunk.js"
+    "revision": "93a978fb970bbb47a0c1",
+    "url": "/total_dance_virtual_classes/static/js/main.c7e23b59.chunk.js"
   },
   {
     "revision": "d638062c31c7103828d8",
