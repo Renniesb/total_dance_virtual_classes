@@ -49,7 +49,7 @@ class App extends Component {
     this.setState({ error: '' });
   }
 
-  handleSubmit = (evt)=> {
+  handleLogin = (evt,history)=> {
     evt.preventDefault();
     const {user_name, password} = this.state;
 
@@ -81,6 +81,7 @@ class App extends Component {
       )
       .then(data => {
           localStorage.setItem(env.TOKEN_KEY, data.authToken)
+          history.push('./videos')
           
       })
       .catch(res => {
@@ -110,7 +111,7 @@ class App extends Component {
     const loginProps = {
       handlePassChange : this.handlePassChange,
       handleUserChange: this.handleUserChange,
-      handleSubmit: this.handleSubmit,
+      handleLogin: this.handleLogin,
       dismissError: this.dismissError,
       user_name: this.state.user_name,
       password: this.state.password,

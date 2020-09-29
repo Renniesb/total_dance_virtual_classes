@@ -1,14 +1,15 @@
 import React from 'react';
 import './Login.css';
 import env from '../config';
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav';
+import {useHistory} from "react-router-dom";
 
 // import config from '../config'
 
 const Login = ({
     handlePassChange,
     handleUserChange,
-    handleSubmit,
+    handleLogin,
     dismissError,
     user_name,
     password,
@@ -17,11 +18,12 @@ const Login = ({
     logout,
     getProfile
 }) => {
+    let history = useHistory();
     return (
         <div>
             <Nav authMessage={authMessage} getProfile={getProfile} page="login"/>
             <div className="Login">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={ (event)=>{handleLogin(event,history)} }>
                 {
                     error &&
                     <h3 data-test="error" onClick={dismissError}>
