@@ -18,7 +18,7 @@ const LandingPage = ({getProfile,authMessage}) => {
                 </div>
                 
                 <ol>                
-                    <li>Login to the app: username = dunder,   password = password</li>
+                    <li>Login to the app: username = danceman,   password = password</li>
                     <li>Click on Video quizzes</li>
                     <li>Select the dance you want to learn</li>
                     <li>Select the level of the dance you want to learn</li>
