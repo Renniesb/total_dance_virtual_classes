@@ -104,7 +104,6 @@ class App extends Component {
     });
   }
   logout = () => {
-    console.log('here we go')
     localStorage.removeItem(env.TOKEN_KEY)
     this.setState({authMessage: '', isAuthenticated: false})
   }

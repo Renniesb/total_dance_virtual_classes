@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 import Nav from './Nav/Nav';
-import {Salsa,Bachata,Merengue} from './links';
+import env from './config';
 import choose from './img/choose.png';
     
 function Video({getProfile,authMessage}) {
     const dances = ['Salsa','Bachata','Merengue'];
     const [danceStep, setDanceStep] = useState('chooseDance');
     const [danceLevel, setDanceLevel] = useState('all');
+    const [danceVideos, setDanceVideos] = useState([]);
+
+
+    const getVideos =  (dance,level) => {
+
+        setDanceLevel(level)
+        return fetch(`${env.API_ENDPOINT}/videos/${dance}/${level}`)
+        .then(response=>response.json())
+        .then(data =>{
+            setDanceVideos(data)
+        }) 
+    }
     const resetValues = () => {
         setDanceStep('chooseDance')
         setDanceLevel('all')
+        setDanceVideos([])
     }
     const getHero = () => {
         if(danceStep === "Salsa" && danceLevel !== 'all' ){
@@ -78,33 +91,25 @@ function Video({getProfile,authMessage}) {
 
         }
         if(dances.includes(danceStep) && danceLevel !== 'all'){
-            let danceVideos;
             
-            switch(danceStep) {
-                case 'Salsa':
-                  danceVideos = Salsa[danceLevel]
-                  break;
-                case 'Bachata':
-                    danceVideos = Bachata[danceLevel]
-                  break;
-                default:
-                  danceVideos = Merengue[danceLevel]
-            }
             return danceVideos.map((move,index)=>{
                 return (
                     <div key={index} style={{ marginBottom: "20px"}}>
                         <section style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", textAlign: "center"}}>
     
-                            <h3 style={{marginTop: "50px", marginBottom: "15px"}}>{move.name}</h3>
+                            <h3 style={{marginTop: "50px", marginBottom: "15px"}}>{move.movetitle}</h3>
                             <div className="img-container">
                                 <iframe style={{height: "315px", width: "100%"}}src={`https://www.youtube.com/embed/${move.link}`}
-                                 frameBorder="0" allowFullScreen title={move.name}>
+                                 frameBorder="0" allowFullScreen title={move.movetitle}>
                                 </iframe>
                             </div>
                         </section>
                     </div>
                 )
+            
             })
+            
+           
         }     
         else{
             return (
@@ -112,9 +117,9 @@ function Video({getProfile,authMessage}) {
                  <section className="select-videos slide-in-right">
                      <div className="btn-group">
                          <h2>Select Your Skill Level</h2>
-                         <button onClick={()=>{setDanceLevel('beginner')}}  className="select">Beginner</button>
-                         <button onClick={()=>{setDanceLevel('intermediate')}} className="select">Intermediate</button>
-                         <button onClick={()=>{setDanceLevel('advanced')}} className="select">Advanced</button>
+                         <button onClick={()=>{getVideos(danceStep,'beginner')}}  className="select">Beginner</button>
+                         <button onClick={()=>{getVideos(danceStep, 'intermediate')}} className="select">Intermediate</button>
+                         <button onClick={()=>{getVideos(danceStep,'advanced')}} className="select">Advanced</button>
                      </div>
                  </section>
                 </>
