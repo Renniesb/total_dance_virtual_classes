@@ -18,6 +18,9 @@ class App extends Component {
     super();
     this.state = {
       user_name: '',
+      full_name: '',
+      nickname: '',
+      email: '',
       password: '',
       error: '',
       authMessage: '',
@@ -37,7 +40,13 @@ class App extends Component {
       .then(response => response.json())
       .then(data =>{ 
         console.log(localStorage.getItem(env.TOKEN_KEY))
-        this.setState({ isAuthenticated: true, profile: data },()=>{
+        console.log(data)
+        this.setState({ isAuthenticated: true,
+           user_name: data.user.sub,
+           full_name: data.user.full_name,
+           nickname: data.user.nickname,
+           email: data.user.email,
+        },()=>{
           history.push('./profile')
         })
         
@@ -121,6 +130,15 @@ class App extends Component {
       logout: this.logout,
       getProfile: this.getProfile
     }
+
+    const profileProps = {
+      user_name: this.state.user_name,
+      authMessage: this.state.authMessage,
+      getProfile: this.getProfile,
+      full_name: this.state.full_name,
+      nickname: this.state.nickname,
+      email: this.state.email,
+    }
     
 
     return (
@@ -133,7 +151,7 @@ class App extends Component {
               <Video authMessage={this.state.authMessage} getProfile={this.getProfile} />
             </Route>       
             <PrivateRoute path="/profile" isAuthenticated = {this.state.isAuthenticated}>
-                <Profile authMessage={this.state.authMessage} />
+                <Profile {...profileProps}/>
             </PrivateRoute>
             <Route path="/">
               <LandingPage authMessage={this.state.authMessage} getProfile={this.getProfile}/>
