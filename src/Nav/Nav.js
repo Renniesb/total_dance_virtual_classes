@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, useHistory} from "react-router-dom";
+import env from '../config';
 // import navStyles from './Nav.module.css'; 
 
 function Nav({getProfile,page,authMessage}) {
@@ -10,7 +11,7 @@ function Nav({getProfile,page,authMessage}) {
 
                 <Link className="active" to="/">Home</Link>
 
-                <Link to="/login">Login</Link>
+                <Link to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
@@ -28,7 +29,7 @@ function Nav({getProfile,page,authMessage}) {
 
                 <Link to="/">Home</Link>
 
-                <Link className="active" to="/login">Login</Link>
+                <Link className="active" to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
@@ -46,7 +47,7 @@ function Nav({getProfile,page,authMessage}) {
               
                 <Link to="/">Home</Link>
 
-                <Link to="/login">Login</Link>
+                <Link to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
@@ -64,7 +65,7 @@ function Nav({getProfile,page,authMessage}) {
               
                 <Link to="/">Home</Link>
 
-                <Link to="/login">Login</Link>
+                <Link to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
