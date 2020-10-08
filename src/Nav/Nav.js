@@ -15,7 +15,7 @@ function Nav({getProfile,page,authMessage}) {
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
-                  authMessage === "success" ? (
+                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
                     <>
                       <Link to="/videos">Video Classes</Link>
                       <button className="makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
@@ -33,7 +33,7 @@ function Nav({getProfile,page,authMessage}) {
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
-                  authMessage === "success" ? (
+                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
                     <>
                       <Link to="/videos">Video Classes</Link>
                       <button className="makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
@@ -51,7 +51,7 @@ function Nav({getProfile,page,authMessage}) {
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
-                  authMessage === "success" ? (
+                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
                     <>
                       <Link className="active" to="/videos">Video Classes</Link>
                       <button className="makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
@@ -69,7 +69,7 @@ function Nav({getProfile,page,authMessage}) {
 
                 {
                   //show the Videos menu and the profile menu tabs if the login is a success
-                  authMessage === "success" ? (
+                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
                     <>
                       <Link to="/videos">Video Classes</Link>
                       <button className="active makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
