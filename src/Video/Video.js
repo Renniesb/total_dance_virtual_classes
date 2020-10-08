@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Nav from './Nav/Nav';
-import env from './config';
-import choose from './img/choose.png';
+import Nav from '../Nav/Nav';
+import env from '../config';
+import choose from '../img/choose.png';
     
 function Video({getProfile,authMessage}) {
     const dances = ['Salsa','Bachata','Merengue'];

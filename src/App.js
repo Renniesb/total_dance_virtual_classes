@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Video from './Video'
+import Video from './Video/Video'
 import Login from './Login/Login'
 import LandingPage from './LandingPage/LandingPage'
 import Profile from './Profile/Profile'
@@ -11,7 +11,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 class App extends Component {
   constructor() {
