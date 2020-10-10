@@ -1,6 +1,6 @@
 # Total Dance Virtual Dance Classes
 
-Link to the live app: https://poc-convo-quiz.vercel.app/
+Link to the live app: https://total-dance-virtual-classes.vercel.app/
 # Screenshots
 
 ![image (4)](https://user-images.githubusercontent.com/7147957/95642203-fbaf8400-0a74-11eb-8cac-a3bc97ba48cb.png)
@@ -19,22 +19,7 @@ HTML5, CSS3, React, JavaScript, Node.js, Express.
 
 # Total Dance Virtual Classes API
 
-link to live api: https://still-garden-93095.herokuapp.com/
-
-Migrations: https://www.npmjs.com/package/postgrator-cli
-
-Settings in [`./postgrator.js`](./postgrator.js)
-
-```js
-require('dotenv').config();
-
-module.exports = {
-    PORT: process.env.PORT || 8000,
-    NODE_ENV: process.env.NODE_ENV || 'development',
-    DATABASE_URL: process.env.DATABASE_URL || 'postgresql://postgres@localhost/quiz',
-    TEST_DATABASE_URL: process.env.TEST_DATABASE_URL || 'postgresql://postgres@localhost/quiz-test'
-}
-```
+link to live api: https://peaceful-harbor-47164.herokuapp.com/api
 
 ## Scripts
 
