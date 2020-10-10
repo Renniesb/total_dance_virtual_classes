@@ -22,7 +22,7 @@ HTML5, CSS3, React, JavaScript, Node.js, Express.
 
 # Total Dance Virtual Classes API
 
-link to live api: https://peaceful-harbor-47164.herokuapp.com/api
+link to live api: https://peaceful-harbor-47164.herokuapp.com
 
 ## Scripts
 
