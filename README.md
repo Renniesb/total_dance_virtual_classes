@@ -26,24 +26,16 @@ link to live api: https://peaceful-harbor-47164.herokuapp.com/api
 
 ## Scripts
 
-**migrate**
-
-Using postgrator behind scenes to read `.sql` files in `./migrations` dir.
-
-- `npm run migrate` to migrate to latest schema
-- `npm run migrate -- 1` to migrate to step 1 of schema
-- `npm run migrate -- 0` to completely rollback schema
-
 **seed**
 
 Use the files inside `./seeds` dir
 
-e.g. to seed the database named `quiz`:
+e.g. to seed the database named `dance_users or videos`:
 
 ```bash
-psql -U $DB_USER -d $DB_NAME -f ./seeds/seed.quiz_questions.sql
-psql -U postgres -d quiz -f ./seeds/seed.quiz_questions.sql
-psql -U postgres -d quiz -f ./seeds/seed.quizzes.sql
+psql -U $DB_USER -d $DB_NAME -f ./seeds/seed.users.sql
+psql -U postgres -d dance_users -f ./seeds/seed.users.sql
+psql -U postgres -d videos -f ./seeds/seed.videos.sql
 ```
 
 
@@ -59,7 +51,6 @@ psql -U postgres -d quiz -f ./seeds/seed.quizzes.sql
 
 - `POST /api/auth/login`
   - to check the users login credentials and log them into the app
-
 
 - `POST /api/user/profile`
   - to get the users profile information only if they are logged into the app.
