@@ -3,11 +3,11 @@
 Link to the live app: https://poc-convo-quiz.vercel.app/
 # Screenshots
 
-![image](https://user-images.githubusercontent.com/7147957/89962362-79404a80-dc12-11ea-905f-1fe53fd6c403.png)
-![image](https://user-images.githubusercontent.com/7147957/89962898-0cc64b00-dc14-11ea-8911-d6278f226cd0.png)
-![image](https://user-images.githubusercontent.com/7147957/89966463-38016800-dc1d-11ea-8243-a2061d9d598b.png)
-![image](https://user-images.githubusercontent.com/7147957/89966668-b52cdd00-dc1d-11ea-843d-568709659b55.png)
-![image](https://user-images.githubusercontent.com/7147957/89966779-e6a5a880-dc1d-11ea-9b2f-4bffbf80b70b.png)
+![image (4)](https://user-images.githubusercontent.com/7147957/95642203-fbaf8400-0a74-11eb-8cac-a3bc97ba48cb.png)
+![image](https://user-images.githubusercontent.com/7147957/95642207-0833dc80-0a75-11eb-8429-7e1eddcc6484.png)
+![image (1)](https://user-images.githubusercontent.com/7147957/95642216-11bd4480-0a75-11eb-8c98-5c0243495bb8.png)
+![Screen Shot 2020-10-09 at 9 05 11 PM](https://user-images.githubusercontent.com/7147957/95642219-17b32580-0a75-11eb-86dd-264920162b42.png)
+![Screen Shot 2020-10-09 at 9 02 01 PM](https://user-images.githubusercontent.com/7147957/95642222-1bdf4300-0a75-11eb-90e1-bb292ef664dc.png)
 
 # Summary
 
