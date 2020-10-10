@@ -3,11 +3,12 @@
 Link to the live app: https://total-dance-virtual-classes.vercel.app/
 # Screenshots
 
-![image (4)](https://user-images.githubusercontent.com/7147957/95642203-fbaf8400-0a74-11eb-8cac-a3bc97ba48cb.png)
 ![image](https://user-images.githubusercontent.com/7147957/95642207-0833dc80-0a75-11eb-8429-7e1eddcc6484.png)
+![Screen Shot 2020-10-09 at 9 02 01 PM](https://user-images.githubusercontent.com/7147957/95642222-1bdf4300-0a75-11eb-90e1-bb292ef664dc.png)
+![image (4)](https://user-images.githubusercontent.com/7147957/95642203-fbaf8400-0a74-11eb-8cac-a3bc97ba48cb.png)
 ![image (1)](https://user-images.githubusercontent.com/7147957/95642216-11bd4480-0a75-11eb-8c98-5c0243495bb8.png)
 ![Screen Shot 2020-10-09 at 9 05 11 PM](https://user-images.githubusercontent.com/7147957/95642219-17b32580-0a75-11eb-86dd-264920162b42.png)
-![Screen Shot 2020-10-09 at 9 02 01 PM](https://user-images.githubusercontent.com/7147957/95642222-1bdf4300-0a75-11eb-90e1-bb292ef664dc.png)
+
 
 # Summary
 
