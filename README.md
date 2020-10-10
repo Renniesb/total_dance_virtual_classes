@@ -12,7 +12,9 @@ Link to the live app: https://total-dance-virtual-classes.vercel.app/
 
 # Summary
 
-This app allows users to take english listening comprehension quizzes. The first screen the user sees is the title page with instructions on how to use the app and a list of the apps. From this page the user can click on one of the quizzes to go to a quiz. Once the quiz is started each question plays an audio or video and presents fill in the blank sentences for the student to fill out. At the end of the quiz the student sees how many questions they got wrong or right. Administrators can create new quizzes, and edit quizzes and questions.
+Total Dance Virtual Classes is for dancing enthusiasts all over the world. It was built for dancers to receive a curated list of videos based on their dance of choice and skill level.The first screen is the home screen. It explains the purpose of the app and shows how to login. From here the user can click on the profile link in the navigation. From here they will enter in the username and password. The user is then taken to the choose a video class playlist page. Here the user can select to learn either Salsa, Bachata or Merengue. They can then choose their skill level. They will then be shown their video classes playlist. The user can also see their profile page by clicking on the profile link in the navigation.
+
+
 
 # Technologies Used
 HTML5, CSS3, React, JavaScript, Node.js, Express.
@@ -47,40 +49,21 @@ psql -U postgres -d quiz -f ./seeds/seed.quizzes.sql
 
 ## Endpoints
 
-### Quizzes
+### Videos
 
-- `GET /api/quiz`
-  - get all quizzes
-- `POST /api/quiz`
-  - create a quiz
+- `GET /api/videos/:dancetype/:dancelevel`
+  - get videos for a specific dance and proficiency level
 
-- `GET /api/quiz/:quizId`
-  - get a specific quiz
-- `PATCH /api/quiz/:quizId`
-  - update a specific quiz
-- `DELETE /api/quiz/:quizId`
-  - delete a specific quiz
-
-### Questions
+### Authentication
 
 
-- `GET /api/questions`
-  - get all questions
-- `POST /api/questions`
-  - create a question
+- `POST /api/auth/login`
+  - to check the users login credentials and log them into the app
+
+
+- `POST /api/user/profile`
+  - to get the users profile information only if they are logged into the app.
   
-- `GET /api/quiz/:quizNum/questions`
-  - get all questions from a specific quiz
-
-- `GET /api/questions/:id`
-  - get a specific question
-- `PATCH /api/questions/:id`
-  - update a specific question
-- `DELETE /api/questions/:id`
-  - delete a specific question
-
-
-
 ## Welcome
 
 - `GET /`
