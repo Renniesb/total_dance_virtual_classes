@@ -26,7 +26,7 @@ link to live api: https://peaceful-harbor-47164.herokuapp.com/api
 
 ## Scripts
 
-Create the database total_dance
+Create the database total_dance, then create the tables than seed those tables.
 
 **create tables**
 
