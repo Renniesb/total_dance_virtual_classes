@@ -30,6 +30,7 @@ class App extends Component {
   }
 
   getProfile = (history)=>{
+    // authorize access to the users profile page only when logged in
     fetch(`${env.API_ENDPOINT}/user/profile`,
     {
       headers: {Authorization: 'Bearer '+ localStorage.getItem(env.TOKEN_KEY)},
@@ -61,7 +62,7 @@ class App extends Component {
   handleLogin = (evt,history)=> {
     evt.preventDefault();
     const {user_name, password} = this.state;
-
+    //show error messages if the user doesn't include their username or password
     if (!user_name) {
       return this.setState({ error: 'Username is required' });
     }
@@ -69,6 +70,7 @@ class App extends Component {
     if (!password) {
       return this.setState({ error: 'Password is required' });
     }
+    //logs user in if they provide the correct credentials
     fetch(`${env.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {
@@ -91,6 +93,7 @@ class App extends Component {
 
       )
       .then(data => {
+          //sets the valid authorization token and redirects the user to the video classes page
           localStorage.setItem(env.TOKEN_KEY, data.authToken)
           history.push('./videos')
           
@@ -102,23 +105,27 @@ class App extends Component {
 
 
   handleUserChange = (evt) => {
+    //handles the username input field keeping the value in state
     this.setState({
       user_name: evt.target.value,
     });
   };
 
   handlePassChange = (evt) => {
+    //handles the password input field keeping the value in state
     this.setState({
       password: evt.target.value,
     });
   }
   logout = () => {
+    //removes the auth token when the user logs out
     localStorage.removeItem(env.TOKEN_KEY)
     this.setState({authMessage: '', isAuthenticated: false})
   }
 
   render() {
     const loginProps = {
+      //props for the log in
       handlePassChange : this.handlePassChange,
       handleUserChange: this.handleUserChange,
       handleLogin: this.handleLogin,
@@ -132,6 +139,7 @@ class App extends Component {
     }
 
     const profileProps = {
+      //props for the profile page
       user_name: this.state.user_name,
       authMessage: this.state.authMessage,
       getProfile: this.getProfile,
@@ -142,7 +150,8 @@ class App extends Component {
     
 
     return (
-      <div>     
+      <div> 
+          {/* go to the correct page route depending on the path specified in th url     */}
           <Switch>
             <Route path="/login">
               <Login {...loginProps}/>

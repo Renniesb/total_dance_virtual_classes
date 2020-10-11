@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav'
 const LandingPage = ({getProfile,authMessage}) => {
     return (
         <div>
+        {/* an adaptive navigation that highlights the landing page in the navigation */}
         <Nav authMessage={authMessage} getProfile={getProfile} page="home"/>
         <header className="hero">
             <div className="container">

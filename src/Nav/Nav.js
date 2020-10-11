@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link, useHistory} from "react-router-dom";
 import env from '../config';
-// import navStyles from './Nav.module.css'; 
 
 function Nav({getProfile,page,authMessage}) {
   let history = useHistory();

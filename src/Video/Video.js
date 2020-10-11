@@ -25,6 +25,8 @@ function Video({getProfile,authMessage}) {
         setDanceVideos([])
     }
     const getHero = () => {
+
+        // depending on the type of dance selected a certain background image is selected
         if(danceStep === "Salsa" && danceLevel !== 'all' ){
             return (
                 <>
@@ -61,7 +63,7 @@ function Video({getProfile,authMessage}) {
                  <button className="big-button" onClick={() => resetValues()}>Select A different dance</button>
                 </>
                    )
-        }
+        }   //this is the background image shown when no dance has been selected yet
         else {
             return (
                 <header style={{background: `url(${choose})`, padding: "9em 0"}} className="hero">
@@ -74,7 +76,7 @@ function Video({getProfile,authMessage}) {
     }
        
     const renderSelectDance = () => {
-
+        // shows the choose a dance menu if the dance type has not been selected yet
         if(danceStep === 'chooseDance'){
             return (
                 <>
@@ -90,6 +92,7 @@ function Video({getProfile,authMessage}) {
             )
 
         }
+        //Show the displayed videos if the dance type and skill level have been selected
         if(dances.includes(danceStep) && danceLevel !== 'all'){
             
             return danceVideos.map((move,index)=>{
@@ -110,7 +113,7 @@ function Video({getProfile,authMessage}) {
             })
             
            
-        }     
+        }  //when the dance type has been selected but the dance skill level hasn't been selected yet show this menu    
         else{
             return (
                 <>
@@ -133,9 +136,11 @@ function Video({getProfile,authMessage}) {
         <>
             <Nav authMessage={authMessage} getProfile={getProfile} page="videos"/>
             {
+                //function to get the hero image as it dynamically changes depending on the dance selected
                 getHero()
             }
            {
+               //render the select dance and select dance skill level menus dynamically
                renderSelectDance()
            } 
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#333333" fillOpacity="1" d="M0,224L48,202.7C96,181,192,139,288,128C384,117,480,139,576,170.7C672,203,768,245,864,229.3C960,213,1056,139,1152,122.7C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>

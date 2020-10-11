@@ -6,9 +6,11 @@ const Profile = ({authMessage,getProfile,user_name,nickname,full_name, email }) 
     return (
         <>
         <div>
+            {/* dynamically highlights the profile link in the navigation */}
             <Nav authMessage={authMessage} getProfile={getProfile} page="profile"/>
             <div className="profile-container">
                 <h1>Profile Page</h1>
+                {/* shows the profile information when authenticated */}
                 <img style={{marginLeft: "-10px", width: "200px", height:"200px"}} alt="user profile icon" src={user}></img>
                 <h3 style={{display: "inline"}}>Username:<span style={{color: "rebeccapurple"}}> {user_name}</span></h3>
                 <h3 style={{display: "inline"}}>Nickname:<span style={{color: "rebeccapurple"}}> {nickname}</span></h3>
