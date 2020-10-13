@@ -46,8 +46,8 @@ const Login = ({
             </div>
         </div>
         
-    )
-}
+    );
+};
 
 
 

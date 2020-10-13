@@ -28,9 +28,9 @@ const LandingPage = ({getProfile,authMessage}) => {
                 
         </section>      
         </div>
-    )
+    );
         
     
-}
+};
 
 export default LandingPage;

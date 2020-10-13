@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Video from './Video/Video'
-import Login from './Login/Login'
-import LandingPage from './LandingPage/LandingPage'
-import Profile from './Profile/Profile'
+import Video from './Video/Video';
+import Login from './Login/Login';
+import LandingPage from './LandingPage/LandingPage';
+import Profile from './Profile/Profile';
 import env from './config';
 
 
@@ -27,7 +27,7 @@ class App extends Component {
       isAuthenticated: false
     };
 
-  }
+  };
 
   getProfile = (history)=>{
     // authorize access to the users profile page only when logged in
@@ -40,8 +40,6 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(data =>{ 
-        console.log(localStorage.getItem(env.TOKEN_KEY))
-        console.log(data)
         this.setState({ isAuthenticated: true,
            user_name: data.user.sub,
            full_name: data.user.full_name,
@@ -52,12 +50,12 @@ class App extends Component {
         })
         
       }
-      ).catch(err=>console.log(err))
-  }
+      ).catch(err=>console.log(err));
+  };
 
   dismissError = () => {
     this.setState({ error: '' });
-  }
+  };
 
   handleLogin = (evt,history)=> {
     evt.preventDefault();
@@ -100,8 +98,8 @@ class App extends Component {
       })
       .catch(res => {
         this.setState({ error: '' });
-      })
-  }
+      });
+  };
 
 
   handleUserChange = (evt) => {
@@ -116,12 +114,12 @@ class App extends Component {
     this.setState({
       password: evt.target.value,
     });
-  }
+  };
   logout = () => {
     //removes the auth token when the user logs out
-    localStorage.removeItem(env.TOKEN_KEY)
-    this.setState({authMessage: '', isAuthenticated: false})
-  }
+    localStorage.removeItem(env.TOKEN_KEY);
+    this.setState({authMessage: '', isAuthenticated: false});
+  };
 
   render() {
     const loginProps = {
@@ -136,7 +134,7 @@ class App extends Component {
       authMessage: this.state.authMessage,
       logout: this.logout,
       getProfile: this.getProfile
-    }
+    };
 
     const profileProps = {
       //props for the profile page
@@ -146,7 +144,7 @@ class App extends Component {
       full_name: this.state.full_name,
       nickname: this.state.nickname,
       email: this.state.email,
-    }
+    };
     
 
     return (
@@ -168,8 +166,8 @@ class App extends Component {
           </Switch>
       </div>  
     );
-  }
-}
+  };
+};
 
 
 

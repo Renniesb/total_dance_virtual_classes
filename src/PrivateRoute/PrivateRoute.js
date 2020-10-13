@@ -20,6 +20,6 @@ const PrivateRoute = ({children, isAuthenticated, ...rest}) => {
           }
         />
     );
-}
+};
 
 export default PrivateRoute;

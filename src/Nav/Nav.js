@@ -79,6 +79,6 @@ function Nav({getProfile,page,authMessage}) {
               </nav>)
     }
     
-}
+};
 
 export default Nav;
