@@ -41,7 +41,7 @@ const Login = ({
                 {/* display success message when logged in */}
                 <p>{authMessage}</p>
                 {/* changes the button as either log in or log out depending on whether the user is logged in or not */}
-                {authMessage !== "success" && localStorage.getItem(env.TOKEN_KEY) === null ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={logout}  data-test="submit">Log Out</button>   } 
+                {localStorage.getItem(env.TOKEN_KEY) === null ? <input type="submit" value="Log In" data-test="submit" /> : <button onClick={()=>{logout(history)}}  data-test="submit">Log Out</button>   } 
                 </form>
             </div>
         </div>

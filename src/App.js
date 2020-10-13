@@ -17,6 +17,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      profile_username: '',
       user_name: '',
       full_name: '',
       nickname: '',
@@ -41,7 +42,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data =>{ 
         this.setState({ isAuthenticated: true,
-           user_name: data.user.sub,
+           profile_username: data.user.sub,
            full_name: data.user.full_name,
            nickname: data.user.nickname,
            email: data.user.email,
@@ -78,13 +79,13 @@ class App extends Component {
     })
       .then(res =>{
         if(!res.ok){
-          res.json().then(e => Promise.reject(e))
-          this.setState({authMessage: "failed"})
-          this.setState({user_name: "", password: ""})
+          res.json().then(e => Promise.reject(e));
+          this.setState({authMessage: "failed"});
+          this.setState({user_name: "", password: ""});
         }
         else {
-          this.setState({authMessage: "success"})
-          this.setState({user_name: "", password: ""})
+          this.setState({authMessage: ""});
+          this.setState({user_name: "", password: ""});
           return res.json();          
         }
       }
@@ -92,8 +93,8 @@ class App extends Component {
       )
       .then(data => {
           //sets the valid authorization token and redirects the user to the video classes page
-          localStorage.setItem(env.TOKEN_KEY, data.authToken)
-          history.push('./videos')
+          localStorage.setItem(env.TOKEN_KEY, data.authToken);
+          history.push('./videos');
           
       })
       .catch(res => {
@@ -115,10 +116,11 @@ class App extends Component {
       password: evt.target.value,
     });
   };
-  logout = () => {
+  logout = (history) => {
     //removes the auth token when the user logs out
     localStorage.removeItem(env.TOKEN_KEY);
     this.setState({authMessage: '', isAuthenticated: false});
+    history.push('./');
   };
 
   render() {
@@ -138,7 +140,7 @@ class App extends Component {
 
     const profileProps = {
       //props for the profile page
-      user_name: this.state.user_name,
+      user_name: this.state.profile_username,
       authMessage: this.state.authMessage,
       getProfile: this.getProfile,
       full_name: this.state.full_name,
