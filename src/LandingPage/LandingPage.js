@@ -1,12 +1,12 @@
 import React from 'react';
 import './LandingPage.css';
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav';
 
-const LandingPage = ({getProfile,authMessage}) => {
+const LandingPage = ({getProfile, logout}) => {
     return (
         <div>
         {/* an adaptive navigation that highlights the landing page in the navigation */}
-        <Nav authMessage={authMessage} getProfile={getProfile} page="home"/>
+        <Nav getProfile={getProfile} logout={logout} page="home"/>
         <header className="hero">
             <div className="container">
                 <h1 className="main-text">Interactive dance playlists</h1>

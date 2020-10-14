@@ -2,82 +2,52 @@ import React from 'react';
 import {Link, useHistory} from "react-router-dom";
 import env from '../config';
 
-function Nav({getProfile,page,authMessage}) {
+function Nav({getProfile,page,logout}) {
   let history = useHistory();
-    if(page === "home"){
 
-          return (<nav className="topnav">
+  //initiate the logged in and out link and logged in user links variables
+  let loggedLink;
+  let loggedInUserLinks;
 
-                <Link className="active" to="/">Home</Link>
+  //determines whether or not to set the page as a highlighted
+  let highlightHome = page === "home" ? "active": "";
+  let highlightLogin = page === "login" ? "active": "";
+  let highlightVideo = page === "video" ? "active": "";
+  let highlightProfile = page === "profile" ? "active": "";
 
-                <Link to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
+  //if the user isn't logged in show the login tab and hide the video classes and profile tabs
+  if(localStorage.getItem(env.TOKEN_KEY) == null){
+    loggedLink = <Link className={highlightLogin} to="/login">Login</Link>
+    loggedInUserLinks = <></>
+  }
+  else{
+    //if the user is logged in show the log out, video classes and profile tabs
 
-                {
-                  //show the Videos menu and the profile menu tabs if the login is a success
-                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
-                    <>
-                      <Link to="/videos">Video Classes</Link>
-                      <button className="makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
-                    </> 
-                  ): <></>
-                }
+    loggedLink = <button className={'makeNavElement '+ highlightLogin } onClick={()=>{logout(history)}}>Log Out</button>
+    loggedInUserLinks = <>
+                          <Link className={highlightVideo} to="/videos">Video Classes</Link>
+                          <button className={'makeNavElement '+ highlightProfile} onClick={()=>{getProfile(history)}}>Profile</button>
+                       </> 
+  }
 
-          </nav>)
-    }else if(page==="login"){
-          return (<nav className="topnav">
+  return (
+  <nav className="topnav">
+    
+    <Link className={highlightHome} to="/">Home</Link>
 
-                <Link to="/">Home</Link>
-
-                <Link className="active" to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
-
-                {
-                  //show the Videos menu and the profile menu tabs if the login is a success
-                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
-                    <>
-                      <Link to="/videos">Video Classes</Link>
-                      <button className="makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
-                    </> 
-                  ): <></>
-                }
-
-          </nav>)
-    }else if(page==="videos"){
-      return(<nav className="topnav">
-              
-                <Link to="/">Home</Link>
-
-                <Link to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
-
-                {
-                  //show the Videos menu and the profile menu tabs if the login is a success
-                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
-                    <>
-                      <Link className="active" to="/videos">Video Classes</Link>
-                      <button className="makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
-                    </> 
-                  ): <></>
-                }
-              
-              </nav>)
-    }else{
-      return(<nav className="topnav">
-              
-                <Link to="/">Home</Link>
-
-                <Link to="/login">{localStorage.getItem(env.TOKEN_KEY) == null ? "Login": "Logout"}</Link>
-
-                {
-                  //show the Videos menu and the profile menu tabs if the login is a success
-                  localStorage.getItem(env.TOKEN_KEY) !== null ? (
-                    <>
-                      <Link to="/videos">Video Classes</Link>
-                      <button className="active makeNavElement" onClick={()=>{getProfile(history)}}>Profile</button>
-                    </> 
-                  ): <></>
-                }
-              
-              </nav>)
+    {
+      //displays the logged in or out link
+      loggedLink             
+    
     }
+
+    {
+      //show the Video Classes and Profile links if the login is a success
+    loggedInUserLinks
+    }
+
+  </nav>
+)
     
 };
 

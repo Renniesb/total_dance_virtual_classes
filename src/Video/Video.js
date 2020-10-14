@@ -3,7 +3,7 @@ import Nav from '../Nav/Nav';
 import env from '../config';
 import choose from '../img/choose.png';
     
-function Video({getProfile,authMessage}) {
+function Video({getProfile,logout}) {
     const dances = ['Salsa','Bachata','Merengue'];
     const [danceStep, setDanceStep] = useState('chooseDance');
     const [danceLevel, setDanceLevel] = useState('all');
@@ -134,7 +134,7 @@ function Video({getProfile,authMessage}) {
 
     return (
         <>
-            <Nav authMessage={authMessage} getProfile={getProfile} page="videos"/>
+            <Nav getProfile={getProfile} logout={logout} page="video"/>
             {
                 //function to get the hero image as it dynamically changes depending on the dance selected
                 getHero()

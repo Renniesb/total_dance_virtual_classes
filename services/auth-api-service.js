@@ -1,4 +1,4 @@
-import config from '../src/config'
+import config from '../src/config';
 
 const AuthApiService = {
   postLogin({ user_name, password }) {
@@ -13,8 +13,8 @@ const AuthApiService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      );
   },
-}
+};
 
 export default AuthApiService

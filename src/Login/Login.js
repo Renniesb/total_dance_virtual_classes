@@ -21,7 +21,7 @@ const Login = ({
     let history = useHistory();
     return (
         <div>
-            <Nav authMessage={authMessage} getProfile={getProfile} page="login"/>
+            <Nav getProfile={getProfile} logout={logout} page="login"/>
             <div className="Login">
                 {/* handle the login authentication when submit button is clicked */}
                 <form onSubmit={ (event)=>{handleLogin(event,history)} }>

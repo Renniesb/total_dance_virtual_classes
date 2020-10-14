@@ -2,12 +2,12 @@ import React from 'react';
 import './Profile.css';
 import Nav from '../Nav/Nav';
 import user from '../img/user.png';
-const Profile = ({authMessage,getProfile,user_name,nickname,full_name, email }) => {
+const Profile = ({getProfile,user_name,nickname,full_name, email,logout }) => {
     return (
         <>
         <div>
             {/* dynamically highlights the profile link in the navigation */}
-            <Nav authMessage={authMessage} getProfile={getProfile} page="profile"/>
+            <Nav getProfile={getProfile} logout={logout} page="profile"/>
             <div className="profile-container">
                 <h1>Profile Page</h1>
                 {/* shows the profile information when authenticated */}
