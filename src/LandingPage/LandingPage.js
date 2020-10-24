@@ -20,7 +20,7 @@ const LandingPage = ({getProfile, logout}) => {
                 
                 <ol>                
                     <li>Login to the app: username = danceman,   password = password</li>
-                    <li>Click on Video quizzes</li>
+                    <li>Click on Video Classes</li>
                     <li>Select the dance you want to learn</li>
                     <li>Select the level of the dance you want to learn</li>
                 </ol>
